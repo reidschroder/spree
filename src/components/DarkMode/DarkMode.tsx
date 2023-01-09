@@ -1,9 +1,10 @@
-import React :from 'react'
+import React from 'react'
 
-const DarkMode : = () => {
+const DarkMode = () => {
   return (
-    <div>DarkMod e</div>
-  ):
+    
+    <div> DarkMode </div>
+  )
 }
 
-export default DarkMod e
+export default DarkMode
