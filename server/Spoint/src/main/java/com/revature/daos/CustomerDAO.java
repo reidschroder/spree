@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface CustomerDAO extends JpaRepository<Customer, Integer> {
 
         public Optional<Customer> findByCustomerUsername(String username);
+        public Optional<Customer> findByCustomerEmail(String email);
 
 }

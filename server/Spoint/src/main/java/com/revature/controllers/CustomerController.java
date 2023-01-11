@@ -30,6 +30,18 @@ public class CustomerController {
     //New Customer
     @PostMapping(value = "/register")
     public ResponseEntity addCustomer(@RequestBody Customer c){
+        Optional<Customer> customerOptional = cDAO.findByCustomerUsername(c.getCustomerUsername());
+        Optional<Customer> customerEmailOptional = cDAO.findByCustomerEmail(c.getCustomerEmail());
+
+        if(customerOptional.isPresent()){
+            //Customer extractedCustomer = customerOptional.get();
+            return ResponseEntity.status(406).body("Username Taken.");
+        }
+
+        if(customerEmailOptional.isPresent()){
+            //Customer extractedCustomer = customerOptional.get();
+            return ResponseEntity.status(406).body("Email Taken.");
+        }
 
         Customer newCustomer = cDAO.save(c);
 

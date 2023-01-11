@@ -17,7 +17,7 @@ public class Customer {
     private String customerFirstName;
 
     private String customerLastName;
-
+    @Column(unique = true)
     private String customerUsername;
 
     private String customerPassword;
