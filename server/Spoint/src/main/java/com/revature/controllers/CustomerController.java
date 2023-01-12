@@ -21,6 +21,7 @@ public class CustomerController {
 
     @Autowired
     public CustomerController(CustomerDAO cDAO){
+
         this.cDAO = cDAO;
     }
 
@@ -55,6 +56,7 @@ public class CustomerController {
     //Get All Customers
     @GetMapping
     public ResponseEntity<List<Customer>> getAllCustomers(){
+
         return ResponseEntity.ok(cDAO.findAll());
     }
 
