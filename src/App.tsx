@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login/Login';
+import Product from './components/Product/Product';
 import Register from './components/Register/Register';
+
 
 function App() {
   return (
