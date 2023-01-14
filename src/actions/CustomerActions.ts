@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Customer } from "../store/types"
 import { LOGIN_USER } from "./ActionTypes";
 
@@ -57,6 +58,8 @@ export const registerCustomer = (registerInfo: CustomerRegister) => async (dispa
 
         if (response.status === 202) {
             console.log(response);
+            const navigate = useNavigate();
+            navigate("/login");
         }
     }
     catch (e) {
