@@ -16,7 +16,7 @@ const Register: React.FC<any> = () => {
   const [customerEmail, setCustomerEmail] = useState("");
 
   const navigate = useNavigate();
-
+  console.log();
   const gatherInput = (input: any) => {
     if (input.target.name === "customerFirstName") {
       setCustomerFirstName(input.target.value);
