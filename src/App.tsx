@@ -6,13 +6,14 @@ import Profile from './components/Profile/Profile';
 import Product from './components/Product/Product';
 import Register from './components/Register/Register';
 import Nav from './components/Nav/Nav';
+import Cart from './components/Cart/Cart';
 
 
 function App() {
   return (
     <div className="App">
       <Nav />
-       <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
