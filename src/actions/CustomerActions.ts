@@ -18,7 +18,7 @@ interface CustomerRegister {
 
 export const loginCustomer = (creds: CustomerLogin) => async (dispatch: any) => {
     let loggedInCustomer: Customer;
-
+    console.log();
     try {
 
         //send my HTTP request with axios, and put it into a variable we can use
