@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 
 //Created inital Nav bar. Needs ternary in nav bar to return profile and logout if user is logged in or not
@@ -29,7 +28,7 @@ const Nav = () => {
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/data/login">login</a>
+        <a className="nav-link" href="/login">login</a>
       </li>
     </ul>
   </div>

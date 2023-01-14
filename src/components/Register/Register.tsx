@@ -141,7 +141,7 @@ const Register: React.FC<any> = () => {
                   <div>
                     <p className="mb-0">
                       Have an account?{" "}
-                      <a href="/data/login" className="text-white-50 fw-bold">
+                      <a href="/login" className="text-white-50 fw-bold">
                         Login
                       </a>
                     </p>
