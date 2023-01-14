@@ -14,8 +14,8 @@ function App() {
       <Nav />
        <BrowserRouter>
         <Routes>
-          <Route path="/data/register" element={<Register/>}/>
-          <Route path="/data/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
         </Routes>
       </BrowserRouter>
