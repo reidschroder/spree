@@ -94,7 +94,7 @@ const Login: React.FC<any> = () => {
                     <p className="mb-0">
                       Don't have an account?{" "}
                       <a
-                        href="/data/register"
+                        href="/register"
                         className="text-white-50 fw-bold"
                       >
                         Register
