@@ -34,7 +34,6 @@ public class CustomerController {
     public ResponseEntity addCustomer(@RequestBody Customer c){
         Optional<Customer> customerOptional = cDAO.findByCustomerUsername(c.getCustomerUsername());
         Optional<Customer> customerEmailOptional = cDAO.findByCustomerEmail(c.getCustomerEmail());
-        System.out.println(c);
         if(customerOptional.isPresent()){
             //Customer extractedCustomer = customerOptional.get();
             return ResponseEntity.status(406).body("Username Taken.");

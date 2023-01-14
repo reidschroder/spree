@@ -16,29 +16,34 @@ const Register: React.FC<any> = () => {
   const [customerEmail, setCustomerEmail] = useState("");
 
   const navigate = useNavigate();
-
+  console.log();
   const gatherInput = (input: any) => {
     if (input.target.name === "customerFirstName") {
       setCustomerFirstName(input.target.value);
-    } else if (input.target.name === "customerLastName") {
+    } 
+    else if (input.target.name === "customerLastName") {
       setCustomerLastName(input.target.value);
-    } else if (input.target.value === "customerUsername") {
+    } 
+    else if (input.target.name === "customerUsername") {
       setCustomerUsername(input.target.value);
-    } else if (input.target.value === "customerPassword") {
+    } 
+    else if (input.target.name === "customerPassword") {
       setCustomerPassword(input.target.value);
-    } else if (input.target.value === "customerEmail") {
+    } 
+    else if (input.target.name === "customerEmail") {
       setCustomerEmail(input.target.value);
     }
   };
 
   const register = async () => {
+
     await dispatch(
       registerCustomer({
         customerFirstName,
         customerLastName,
         customerUsername,
         customerPassword,
-        customerEmail,
+        customerEmail
       }) as any
     );
     navigate("/login");
