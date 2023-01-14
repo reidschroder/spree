@@ -3,11 +3,12 @@ package com.revature.controllers;
 import com.revature.daos.CustomerDAO;
 import com.revature.models.Customer;
 import com.revature.models.LoginDTO;
+import com.revature.models.ReturnLoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
+//import javax.xml.ws.Response;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +34,7 @@ public class CustomerController {
     public ResponseEntity addCustomer(@RequestBody Customer c){
         Optional<Customer> customerOptional = cDAO.findByCustomerUsername(c.getCustomerUsername());
         Optional<Customer> customerEmailOptional = cDAO.findByCustomerEmail(c.getCustomerEmail());
-
+        System.out.println(c);
         if(customerOptional.isPresent()){
             //Customer extractedCustomer = customerOptional.get();
             return ResponseEntity.status(406).body("Username Taken.");
@@ -80,12 +81,16 @@ public class CustomerController {
     @PostMapping(value = "/login")
     public ResponseEntity customerLogin(@RequestBody LoginDTO login){
         Optional<Customer> customerOptional = cDAO.findByCustomerUsername(login.getUsername());
-
+        System.out.println(login.getUsername());
+        System.out.println(login.getPassword());
         if(customerOptional.isPresent()){
             Customer extractedCustomer = customerOptional.get();
 
             if(extractedCustomer.getCustomerPassword().equals(login.getPassword())){
-                return ResponseEntity.accepted().build();
+
+                ReturnLoginDTO rDTO = new ReturnLoginDTO(extractedCustomer.getCustomerId(), extractedCustomer.getCustomerUsername());
+
+                return ResponseEntity.accepted().body(rDTO);
             }
         }
 
