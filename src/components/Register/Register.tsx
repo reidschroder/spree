@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { registerCustomer } from "../../actions/CustomerActions";
 import "./Register.css";
 
@@ -15,8 +14,6 @@ const Register: React.FC<any> = () => {
   const [customerPassword, setCustomerPassword] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
 
-  const navigate = useNavigate();
-  console.log();
   const gatherInput = (input: any) => {
     if (input.target.name === "customerFirstName") {
       setCustomerFirstName(input.target.value);
@@ -46,7 +43,6 @@ const Register: React.FC<any> = () => {
         customerEmail
       }) as any
     );
-    navigate("/login");
   };
 
   return (
