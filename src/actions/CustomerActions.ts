@@ -1,7 +1,8 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Customer } from "../store/types"
-import { LOGIN_USER } from "./ActionTypes";
+import { LOGIN_USER, LOGOUT_USER } from "./ActionTypes";
 
 
 interface CustomerLogin {
@@ -63,6 +64,21 @@ export const registerCustomer = (registerInfo: CustomerRegister) => async (dispa
         }
     }
     catch (e) {
-        console.log("Registered Failed");
+        console.log("Registration Failed");
     }
+}
+
+export const logoutCustomer = () => async () => {
+    let loggedOutCustomer: Customer;
+    const dispatch = useDispatch()
+    loggedOutCustomer = {
+        customerId: 0,
+        customerUsername: ''
+    }
+
+    return dispatch({
+        type: LOGOUT_USER,
+        payload: loggedOutCustomer
+    })
+    
 }

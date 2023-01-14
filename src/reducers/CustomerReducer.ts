@@ -1,4 +1,4 @@
-import { LOGIN_USER } from "../actions/ActionTypes";
+import { LOGIN_USER, LOGOUT_USER } from "../actions/ActionTypes";
 import { Customer } from "../store/types";
 
 let initialState: Customer = {
@@ -15,6 +15,11 @@ export const CustomerReducer = (state: Customer = initialState, action: Action) 
 
     switch(action.type) {
         case LOGIN_USER:
+            initialState = action.payload
+            return {
+                ...initialState
+            }
+        case LOGOUT_USER:
             initialState = action.payload
             return {
                 ...initialState

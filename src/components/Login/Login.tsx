@@ -35,7 +35,7 @@ const Login: React.FC<any> = () => {
 
     // if the user logged in successfully, their id wont be 0;
     if (appState.customer.customerId > 0) {
-      navigate("/home");
+      navigate("/profile");
       //thanks to navigate, we can route to the home component automatically
     }
   };
