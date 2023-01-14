@@ -18,8 +18,6 @@ interface CustomerRegister {
 
 export const loginCustomer = (creds: CustomerLogin) => async (dispatch: any) => {
     let loggedInCustomer: Customer;
-    console.log(creds.username);
-    console.log(creds.password);
 
     try {
 
@@ -56,16 +54,9 @@ export const registerCustomer = (registerInfo: CustomerRegister) => async (dispa
 
     try {
         const response = await axios.post("http://localhost:5555/data/register", registerInfo);
-        console.log(registerInfo.customerEmail)
-        console.log(registerInfo.customerLastName)
-        console.log(registerInfo.customerFirstName)
-        console.log(registerInfo.customerPassword)
-        console.log(registerInfo.customerUsername)
 
         if (response.status === 202) {
             console.log(response);
-
-            return dispatch()
         }
     }
     catch (e) {
