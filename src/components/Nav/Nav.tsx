@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutCustomer } from "../../actions/CustomerActions";
 import { store } from "../../store/store";
 
@@ -7,7 +7,7 @@ import { store } from "../../store/store";
 
 const Nav: React.FC<any> = () => {
   const appState = useSelector<any, any>((state) => state);
-
+  const dispatch = useDispatch();
 
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,7 +51,8 @@ const Nav: React.FC<any> = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/login" onClick={logoutCustomer}>
+                  <a className="nav-link" href="/login" 
+                  onClick={() => dispatch(logoutCustomer())}>
                     Logout
                   </a>
                 </li>
