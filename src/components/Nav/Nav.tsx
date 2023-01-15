@@ -62,7 +62,7 @@ const Nav: React.FC<any> = () => {
                   login
                 </a>
               </li>
-             )} 
+             )}
             <li>{appState.customer.customerId}</li>
           </ul>
         </div>

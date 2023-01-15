@@ -7,12 +7,14 @@ import Product from './components/Product/Product';
 import Register from './components/Register/Register';
 import Nav from './components/Nav/Nav';
 import Cart from './components/Cart/Cart';
+import DarkMode from './components/DarkMode/DarkMode';
 
 
 function App() {
   return (
     <div className="App">
       <Nav />
+      <DarkMode/>
       <BrowserRouter>
         <Routes>
           <Route path="/register" element={<Register/>}/>
