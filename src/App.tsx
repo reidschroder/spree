@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <DarkMode/>
       <BrowserRouter>
         <Routes>
           <Route path="/register" element={<Register/>}/>

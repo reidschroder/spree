@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutCustomer } from "../../actions/CustomerActions";
 import { store } from "../../store/store";
+import DarkMode from "../DarkMode/DarkMode";
 
 //Created inital Nav bar. Needs ternary in nav bar to return profile and logout if user is logged in or not
 
@@ -32,7 +33,11 @@ const Nav: React.FC<any> = () => {
               <a className="nav-link" href="/home">
                 Home
               </a>
-            </li>{" "}
+            </li>
+            <li className="nav-item">
+                  <DarkMode />
+            </li>
+            {" "}
              {appState.customer.customerId > 0 ? ( 
               <>
                 <li className="nav-item">

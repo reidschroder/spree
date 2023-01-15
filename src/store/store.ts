@@ -7,6 +7,9 @@ const state: AppState = {
     customer: {
         customerId: 0, 
         customerUsername: ""
+    },
+    darkMode: {
+        darkmode: "dark"
     }
 }
 
