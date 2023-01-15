@@ -80,8 +80,7 @@ public class CustomerController {
     @PostMapping(value = "/login")
     public ResponseEntity customerLogin(@RequestBody LoginDTO login){
         Optional<Customer> customerOptional = cDAO.findByCustomerUsername(login.getUsername());
-        System.out.println(login.getUsername());
-        System.out.println(login.getPassword());
+
         if(customerOptional.isPresent()){
             Customer extractedCustomer = customerOptional.get();
 

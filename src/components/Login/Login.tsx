@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -17,6 +17,11 @@ const Login: React.FC<any> = () => {
   //components through events -no more manual URL changes
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (appState.customer.customerId > 0) {
+      navigate("/profile");
+    }
+  }, [appState.customer.customerId]);
   //when the user updates the username or password this will be called
   //the user/password state will get updated based on the name of the input thats changing
   const gatherInput = (input: any) => {
@@ -28,16 +33,7 @@ const Login: React.FC<any> = () => {
   };
 
   const login = async () => {
-
-    await dispatch(
-      loginCustomer({ username, password }) as any
-    );
-
-    // if the user logged in successfully, their id wont be 0;
-    if (appState.customer.customerId > 0) {
-      navigate("/profile");
-      //thanks to navigate, we can route to the home component automatically
-    }
+    await dispatch(loginCustomer({ username, password }) as any);
   };
 
   return (
@@ -93,10 +89,7 @@ const Login: React.FC<any> = () => {
                   <div>
                     <p className="mb-0">
                       Don't have an account?{" "}
-                      <a
-                        href="/register"
-                        className="text-white-50 fw-bold"
-                      >
+                      <a href="/register" className="text-white-50 fw-bold">
                         Register
                       </a>
                     </p>
