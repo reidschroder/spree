@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Customer } from "../store/types"
-import { LOGIN_USER, LOGOUT_USER } from "./ActionTypes";
+import { Customer, DarkModeState } from "../store/types"
+import { LOGIN_USER, LOGOUT_USER, SET_DARKMODE } from "./ActionTypes";
 
 
 interface CustomerLogin {
@@ -80,4 +80,17 @@ export const logoutCustomer = () => {
         payload: loggedOutCustomer
     }
     
+}
+
+export const setDarkMode = (darkMode: string) => {
+    let setMode: DarkModeState;
+
+    setMode = {
+        darkmode: darkMode
+    }
+
+    return {
+        type: SET_DARKMODE,
+        payload: setMode
+    }
 }

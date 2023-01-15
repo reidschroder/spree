@@ -3,6 +3,12 @@ export interface Customer {
     customerUsername: string
 }
 
-export type AppState = {
-    customer: Customer
+export interface DarkModeState {
+    darkmode: string
 }
+
+export type AppState = {
+    customer: Customer,
+    darkMode: DarkModeState
+}
+
