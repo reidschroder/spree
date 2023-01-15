@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Customer } from "../store/types"
 import { LOGIN_USER, LOGOUT_USER } from "./ActionTypes";
@@ -68,17 +67,17 @@ export const registerCustomer = (registerInfo: CustomerRegister) => async (dispa
     }
 }
 
-export const logoutCustomer = () => async () => {
+export const logoutCustomer = () => {
     let loggedOutCustomer: Customer;
-    const dispatch = useDispatch()
+   
     loggedOutCustomer = {
         customerId: 0,
         customerUsername: ''
     }
 
-    return dispatch({
+    return {
         type: LOGOUT_USER,
         payload: loggedOutCustomer
-    })
+    }
     
 }
