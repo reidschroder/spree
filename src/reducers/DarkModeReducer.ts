@@ -2,7 +2,7 @@ import { SET_DARKMODE } from "../actions/ActionTypes";
 import { DarkModeState } from "../store/types";
 
 let initialState: DarkModeState = {
-    darkmode: "light"
+    darkmode: "dark"
 }
 
 type Action = {
