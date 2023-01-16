@@ -56,7 +56,7 @@ const Register: React.FC<any> = () => {
                 style={{ borderRadius: "2rem" }}
               >
                 <div className="card-body p-5 text-center">
-                  <div className="mb-md-4 mt-md-4 pb-5">
+                  <div className="mb-md-1 mt-md-1 pb-2">
                     <h2 className="fw-bold mb-2 text-uppercase">Register</h2>
                     <p className="text-white-50 mb-3">Create an account</p>
 

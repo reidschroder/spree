@@ -8,3 +8,6 @@ export const SET_DARKMODE = 'SET_DARKMODE';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const DEL_PRODUCT = 'DEL_PRODUCT';
 
+// Actions for ProductList
+export const UPDATE_PRODUCTLIST = 'UPDATE_PRODUCTLIST';
+
