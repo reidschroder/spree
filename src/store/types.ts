@@ -7,8 +7,13 @@ export interface DarkModeState {
     darkmode: string
 }
 
+export interface ProductList {
+    products: Array<any>
+}
+
 export type AppState = {
     customer: Customer,
-    darkMode: DarkModeState
+    darkMode: DarkModeState,
+    productList: ProductList
 }
 

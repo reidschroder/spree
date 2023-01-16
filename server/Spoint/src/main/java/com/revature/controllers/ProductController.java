@@ -53,11 +53,13 @@ public class ProductController {
         if(productOptional.isPresent()){
             return ResponseEntity.status(406).body("This product already exists!");
         }
+
         Product newProduct = pDAO.save(p);
 
         if(newProduct == null){
             return ResponseEntity.badRequest().build();
         }
+
         return ResponseEntity.accepted().body(newProduct);
     }
 

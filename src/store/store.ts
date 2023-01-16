@@ -10,6 +10,9 @@ const state: AppState = {
     },
     darkMode: {
         darkmode: "dark"
+    },
+    productList: {
+        products: []
     }
 }
 
