@@ -22,33 +22,26 @@ public class Product {
 
     private String productType;
 
-    private String productSize;
+    private String productImgUrl;
 
     public Product() {
     }
 
-    public Product(int productId, String productName, double productPrice, String productDescription, String productType, String productSize) {
+    public Product(int productId, String productName, double productPrice, String productDescription, String productType, String productImgUrl) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productDescription = productDescription;
         this.productType = productType;
-        this.productSize = productSize;
+        this.productImgUrl = productImgUrl;
     }
 
-    public Product(String productName, double productPrice, String productDescription, String productType, String productSize) {
+    public Product(String productName, double productPrice, String productDescription, String productType, String productImgUrl) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productDescription = productDescription;
         this.productType = productType;
-        this.productSize = productSize;
-    }
-
-    public Product(String productName, double productPrice, String productDescription, String productType) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productDescription = productDescription;
-        this.productType = productType;
+        this.productImgUrl = productImgUrl;
     }
 
     public int getProductId() {
@@ -91,12 +84,12 @@ public class Product {
         this.productType = productType;
     }
 
-    public String getProductSize() {
-        return productSize;
+    public String getProductImgUrl() {
+        return productImgUrl;
     }
 
-    public void setProductSize(String productSize) {
-        this.productSize = productSize;
+    public void setProductImgUrl(String productImgUrl) {
+        this.productImgUrl = productImgUrl;
     }
 
     @Override
@@ -107,7 +100,7 @@ public class Product {
                 ", productPrice=" + productPrice +
                 ", productDescription='" + productDescription + '\'' +
                 ", productType='" + productType + '\'' +
-                ", productSize='" + productSize + '\'' +
+                ", productImgUrl='" + productImgUrl + '\'' +
                 '}';
     }
 }
