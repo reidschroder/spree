@@ -1,7 +1,12 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Customer } from "../../store/types";
 
-const Profile : React.FC<any> = () => {
+const Profile : React.FC<any> = (props: any) => {
   
+  const appState = useSelector<any, any>((state) => state);
+
+  const dispatch = useDispatch(); //will use when posting new address
   
   
   return (
@@ -14,19 +19,14 @@ const Profile : React.FC<any> = () => {
       <div className="col-lg-4">
         <div className="card mb-4">
           <div className="card-body text-center">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-              alt="avatar"
-              className="rounded-circle img-fluid"
-              style={{ width: 150 }}
-            />
-            <h5 className="Card Name">John Smith</h5>
+
+            <h5 className="Card Name">{`${appState.customer.customerUsername}`}</h5>
             <div className="d-flex justify-content-center mb-2">
               <button type="button" className="btn btn-primary">
                 Add Address
               </button>
               <button type="button" className="btn btn-outline-primary ms-1">
-                Add to cart 
+                Order History (removable if we dont like)
               </button>
             </div>
           </div>
@@ -78,7 +78,7 @@ const Profile : React.FC<any> = () => {
                 <p className="mb-0">Full Name</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Johnatan Smith</p>
+                <p className="text-muted mb-0">Template Literal</p>
               </div>
             </div>
             <hr />
@@ -87,25 +87,7 @@ const Profile : React.FC<any> = () => {
                 <p className="mb-0">Email</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">example@example.com</p>
-              </div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <p className="mb-0">Phone</p>
-              </div>
-              <div className="col-sm-9">
-                <p className="text-muted mb-0">(097) 234-5678</p>
-              </div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <p className="mb-0">Mobile</p>
-              </div>
-              <div className="col-sm-9">
-                <p className="text-muted mb-0">(098) 765-4321</p>
+                <p className="text-muted mb-0">Template Literal</p>
               </div>
             </div>
             <hr />
@@ -114,7 +96,7 @@ const Profile : React.FC<any> = () => {
                 <p className="mb-0">Address</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                <p className="text-muted mb-0">Template Literal AFTER user updates Address</p>
               </div>
             </div>
           </div>
