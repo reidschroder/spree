@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutCustomer } from "../../actions/CustomerActions";
-import { store } from "../../store/store";
 import DarkMode from "../DarkMode/DarkMode";
 
 //Created inital Nav bar. Needs ternary in nav bar to return profile and logout if user is logged in or not
