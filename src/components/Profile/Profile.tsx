@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Customer } from "../../store/types";
 
 const Profile : React.FC<any> = (props: any) => {
@@ -8,6 +9,16 @@ const Profile : React.FC<any> = (props: any) => {
 
   const dispatch = useDispatch(); //will use when posting new address
   
+  let navigate = useNavigate();
+  const routeChange = () => 
+  {
+    let path = `/address`;
+    navigate(path);
+
+  }
+
+
+
   
   return (
     <div className="Profile">
@@ -22,7 +33,7 @@ const Profile : React.FC<any> = (props: any) => {
 
             <h5 className="Card Name">{`${appState.customer.customerUsername}`}</h5>
             <div className="d-flex justify-content-center mb-2">
-              <button type="button" className="btn btn-primary">
+              <button type="button" onClick={routeChange} className="btn btn-primary"> 
                 Add Address
               </button>
               <button type="button" className="btn btn-outline-primary ms-1">
@@ -36,35 +47,42 @@ const Profile : React.FC<any> = (props: any) => {
             <ul className="list-group list-group-flush rounded-3">
               <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i className="fas fa-globe fa-lg text-warning" />
-                <p className="mb-0">https://mdbootstrap.com</p>
+                <p className="mb-0">https://E-commerce Website </p>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i
                   className="fab fa-github fa-lg"
                   style={{ color: "#333333" }}
                 />
-                <p className="mb-0">mdbootstrap</p>
+                <h6 className="mb-0"> Creators </h6>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i
                   className="fab fa-twitter fa-lg"
                   style={{ color: "#55acee" }}
                 />
-                <p className="mb-0">@mdbootstrap</p>
+                <p className="mb-0">@Monae</p>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i
                   className="fab fa-instagram fa-lg"
                   style={{ color: "#ac2bac" }}
                 />
-                <p className="mb-0">mdbootstrap</p>
+                <p className="mb-0">@Luan</p>
               </li>
               <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i
                   className="fab fa-facebook-f fa-lg"
                   style={{ color: "#3b5998" }}
                 />
-                <p className="mb-0">mdbootstrap</p>
+                <p className="mb-0">@Reid</p>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i
+                  className="fab fa-facebook-f fa-lg"
+                  style={{ color: "#3b5998" }}
+                />
+                <p className="mb-0">@Myles </p>
               </li>
             </ul>
           </div>
@@ -75,19 +93,28 @@ const Profile : React.FC<any> = (props: any) => {
           <div className="card-body">
             <div className="row">
               <div className="col-sm-3">
-                <p className="mb-0">Full Name</p>
+                <p className="mb-0">First Name</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Template Literal</p>
+                <p className="text-muted mb-0">Template Literal - "Enter First Name"</p>
               </div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
+                <p className="mb-0">Last name</p>
+              </div>
+              <div className="col-sm-9">
+                <p className="text-muted mb-0">Template Literal - Enter Last Name"</p>
+              </div>
+            </div>
+            <hr/>
+            <div className="row">
+              <div className="col-sm-3">
                 <p className="mb-0">Email</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Template Literal</p>
+                <p className="text-muted mb-0">Template Literal - Enter Email Address" </p>
               </div>
             </div>
             <hr />

@@ -18,7 +18,7 @@ interface CustomerRegister {
 }
 
 export const loginCustomer = (creds: CustomerLogin) => async (dispatch: any) => {
-    let loggedInCustomer: Customer;
+    let loggedInCustomer: Customer; // var to store data from 
     console.log();
     try {
 
