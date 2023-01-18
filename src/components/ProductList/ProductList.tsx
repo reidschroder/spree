@@ -32,7 +32,16 @@ const ProductList: React.FC<any> = () => {
   return (
     <div>
         <button onClick={getProducts}>Get Products!</button>
-        <div>{products}</div>
+        <section style={{backgroundColor: 'white'}}>
+            <div className ="container py-5">
+                <div className ="row justify-content-center">
+                    <div>{products}</div>
+                </div>
+                <br />
+
+             </div>
+        </section>
+        
     </div>
   )
 }
