@@ -10,6 +10,7 @@ import Cart from './components/Cart/Cart';
 import DarkMode from './components/DarkMode/DarkMode';
 import ProductList from './components/ProductList/ProductList';
 import Checkout from './components/Checkout/Checkout';
+import Address from './components/Address/Address';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/checkout" element={<Checkout/>}/>
+          <Route path="/address" element ={<Address/>}/>
         </Routes>
       </BrowserRouter>
     </div>
