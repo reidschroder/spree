@@ -6,7 +6,11 @@ import { persistStore } from "redux-persist";
 const state: AppState = {
     customer: {
         customerId: 0, 
-        customerUsername: ""
+        customerUsername: "",
+        customerFirstName: "",
+        customerLastName: "",
+        customerEmail: "",
+        customerAddress: ""
     },
     darkMode: {
         darkmode: "dark"

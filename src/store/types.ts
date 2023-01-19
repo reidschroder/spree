@@ -1,6 +1,10 @@
 export interface Customer {
     customerId: number,
-    customerUsername: string
+    customerUsername: string,
+    customerFirstName: string,
+    customerLastName: string,
+    customerEmail: string,
+    customerAddress: string
 }
 
 export interface DarkModeState {
@@ -16,4 +20,3 @@ export type AppState = {
     darkMode: DarkModeState,
     productList: ProductList
 }
-
