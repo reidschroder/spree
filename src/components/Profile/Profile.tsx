@@ -125,7 +125,7 @@ const Profile : React.FC<any> = (props: any) => {
                 <p className="mb-0">Address</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">(`${appState.customer.customerAddress}`)</p>
+                <p className="text-muted mb-0">{appState.customer.customerAddress}</p>
               </div>
             </div>
           </div>
