@@ -11,6 +11,7 @@ const state: AppState = {
         customerLastName: "",
         customerEmail: "",
         customerAddress: ""
+
     },
     darkMode: {
         darkmode: "dark"

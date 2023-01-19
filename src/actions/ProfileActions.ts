@@ -9,15 +9,25 @@ export const retrieveProfile = (customerId: number) => async (dispatch:any) =>
     try{
         const response = await axios.get(`http://localhost:5555/data/${customerId}`)//.then((info) => console.log(info)).catch((error) => console.log(error));
         if(response.status === 200)
-        {
+        {   
+            console.log(response);
+
+            let address = `${response.data.address.streetName} ${response.data.address.apartmentUnit} ${response.data.address.cityName} ${response.data.address.stateName} ${response.data.address.zipCode}`
+            
+            console.log(address);
+
             loggedInProfile = {
                 customerId: response.data.customerId,
                 customerUsername: response.data.customerUsername,
                 customerFirstName: response.data.customerFirstName,
                 customerLastName: response.data.customerLastName,
                 customerEmail: response.data.customerEmail,
-                customerAddress: response.data.customerAddress
+                customerAddress: address
             }
+
+
+
+          
 
             console.log("In actions Profile")
             return dispatch({
