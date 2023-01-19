@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import CartProduct from '../CartProduct/CartProduct';
 import './CartCheckout.css'
 
 const CartCheckout: React.FC<any> = () => {
 
   const appState = useSelector<any, any>((state) => state);
   const dispatch = useDispatch();
+  let [cart, setCart] = useState([]);
   const [delItem, setDelItem] = useState();
 
   const increment = (input: any) => {
@@ -17,14 +19,131 @@ const CartCheckout: React.FC<any> = () => {
     }
   }
 
+  const isProductSame = (p1: any, p2: any) => {
+      if (p1.productId !== p2.productId) {
+        return false;
+      }
+      if (p1.size !== p2.size) {
+        return false;
+      }
+      return true;
+  }
+
+  const containsProduct = (product: any, arr: Array<any>) => {
+    for (const p of arr) {
+      if (isProductSame(p, product)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const isProductKeySame = (p1: any, p2: any) => {
+    if (p1.id !== p2.id) {
+      return false;
+    }
+    if (p1.size !== p2.size) {
+      return false;
+    }
+    return true;
+  }
+
+  const containsProductKey = (product: any, arr: Array<any>) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (isProductKeySame(arr[i], product)) {
+        return {
+          same: true,
+          idx: i
+        };
+      }
+    }
+    return {
+      same: false,
+      idx: -1
+    }
+  }
 
 
-const removeFromCart = (delItem: any) => {
-  // delItem is the event item
-  // we want to see/check what attribute is the id of the product
-  // then do dispatch 
-  // if (delItem.target.productId ===)
-}
+  const loadCart = () => {
+    // make Map 
+
+    let arrKeys: any[] = [];
+    let arrVals: any[] = [];
+
+    for (const product of appState.cartList.cart) {
+      let newKey = {
+        id: product.productId,
+        size: product.size
+      }
+      const {same, idx} = containsProductKey(newKey, arrKeys);
+      // if theres no key in array and then add 1
+      if (!same) {
+        arrKeys.push(newKey);
+        arrVals.push(1);
+      }
+      else {
+        arrVals[idx] += 1;
+      }
+    }
+    // console.log("Array of Values");
+    // console.log(arrVals);
+
+    let finalArr: any = [];
+    for (const product of appState.cartList.cart) {
+      if (!containsProduct(product, finalArr)) {
+        finalArr.push(product);
+      }
+    }
+    // console.log("Final Array");
+    // console.log(finalArr)
+    // console.log("State of Cart")
+    // console.log(appState.cartList.cart);
+
+    type Key = {
+      id: number,
+      size: string
+    };
+
+    const getQuantity = (k: Key, arr: Array<any>) => {
+      const {same, idx} = containsProductKey(k, arr);
+      return idx;
+    }
+
+    // Set the cart variable
+    setCart(
+      finalArr.map(
+          (product: any) => 
+              <CartProduct 
+              id={product.productId} 
+              name={product.productName} 
+              price={product.productPrice}
+              description={product.productDescription}
+              type={product.productType}
+              url={product.productImgUrl}
+              size={product.size}
+              quantity={arrVals[getQuantity(
+                {
+                  id: product.productId,
+                  size: product.size
+                }, arrKeys)]}
+              key={product.productId} />
+          ));
+  }
+
+  useEffect(() => {
+      console.log(appState.cartList.cart);
+      loadCart();
+      
+  }, [appState.cartList.cart]);
+
+  const getTotalPrice = () => {
+    let currTotal = 0.00;
+    for (const product of appState.cartList.cart) {
+        currTotal += product.productPrice;
+    }
+    return currTotal;
+  }
+
 
   return (
   <section className="h-100 h-custom" style={{backgroundColor: 'white'}}>
@@ -39,52 +158,7 @@ const removeFromCart = (delItem: any) => {
 
                   <h3 className="mb-5 pt-2 text-center fw-bold text-uppercase">Shopping Cart</h3>
 
-                  <div className="d-flex align-items-center mb-5">
-                    <div className="flex-shrink-0">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
-                        className="img-fluid" style={{width: '150px'}} alt="Generic placeholder"/>
-                    </div>
-                    <div className="flex-grow-1 ms-3">
-                      <a href="#!" className="float-end text-black"><i className= "fas fa-times"></i></a>
-                      {/* requires a template literal */}
-                      <h5 className="text-primary">blue clothing 1</h5>
-                      <h6 style={{color: 'lightgray'}}>Size: </h6>
-                      <div className="d-flex align-items-center">
-                        <p className="fw-bold mb-0 me-5 pe-3">Price:</p>
-                        <div className="def-number-input number-input safari_only">
-                          <button onClick={increment}
-                           className="minus"></button>
-                          <input className="quantity fw-bold text-black" min="0" name="quantity"
-                            type="number"/>
-                          <button onClick={increment}
-                            className="plus"></button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="d-flex align-items-center mb-5">
-                    <div className="flex-shrink-0">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp"
-                        className="img-fluid" style={{width: '150px'}} alt="Generic placeholder"/>
-                    </div>
-                    <div className="flex-grow-1 ms-3">
-                      <a href="#!" className="float-end text-black"><i className="fas fa-times"></i></a>
-                      <h5 className="text-primary">blue clothing 2</h5>
-                      <h6 style={{color: 'lightgray'}}>Size : </h6>
-                      <div className="d-flex align-items-center">
-                        <p className="fw-bold mb-0 me-5 pe-3">Price</p>
-                        <div className="def-number-input number-input safari_only">
-                          <button onClick={increment}
-                            className="minus"></button>
-                          <input className="quantity fw-bold text-black" min="0" name="quantity" type="number"/>
-                          <button onClick={increment}
-                            className="plus"></button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
+                    {cart}
                   
 
                   <hr className="mb-4" style={{height: '2px', backgroundColor: 'lightblue', opacity: 1}}/>
@@ -95,7 +169,7 @@ const removeFromCart = (delItem: any) => {
                   </div> */}
                   <div className="d-flex justify-content-between p-2 mb-2" style={{backgroundColor: 'lightskyblue' }}>
                     <h5 className="fw-bold mb-0">Total:</h5>
-                    <h5 className="fw-bold mb-0">2261$</h5>
+                    <h5 className="fw-bold mb-0">${getTotalPrice()}</h5>
                   </div>
 
                 </div>
