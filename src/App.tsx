@@ -11,6 +11,7 @@ import DarkMode from './components/DarkMode/DarkMode';
 import ProductList from './components/ProductList/ProductList';
 import Checkout from './components/Checkout/Checkout';
 import Address from './components/Address/Address';
+import ProductPage from './components/ProductPage/ProductPage';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
     <div className="App">
       <Nav />
       {/* <ProductList/> */}
-      <Product></Product>
+      <ProductPage/>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProductList/>}/>

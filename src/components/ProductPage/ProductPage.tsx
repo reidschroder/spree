@@ -8,6 +8,14 @@ import "./ProductPage.css"
 //if implementing dis-price product price uncomment code and make .act-price red again in the css
 
 const ProductPage = () => {
+    const increment = (input: any) => {
+        if (input.target.className === "plus") {
+          return input.target.parentNode.querySelector('input[type=number]').stepUp()
+        }
+        else {
+            return input.target.parentNode.querySelector('input[type=number]').stepDown()
+        }
+      }
 
   return (
     <div>
@@ -50,33 +58,22 @@ const ProductPage = () => {
                                     </div>
                                     <p className="about">Shop from a wide range of t-shirt from Spoint. Perfect for your everyday use, you could pair it with a stylish pair of jeans or trousers to complete the look.</p>
                                     <div className="sizes mt-5">
-                                        <h6 className="text-uppercase">Size</h6>
-                                        <label className="radio">
-                                            <input type="radio" name="size" value="S" checked/>
-                                            <span>S</span>
-                                            &nbsp;
-                                        </label>
-                                        <label className="radio"> 
-                                            <input type="radio" name="size" value="M"/>
-                                            <span>M</span>
-                                            &nbsp;
-                                        </label> 
-                                        <label className="radio">
-                                            <input type="radio" name="size" value="L"/>
-                                            <span>L</span> 
-                                        </label>
+                                        <h6 className="text-uppercase"></h6>
+                                        <select className="form-select mx-auto" aria-label="Default select example">
+                                            <option className="option-menu" value="" disabled selected hidden>Size</option>
+                                            <option className="option-menu" value="1">S</option>
+                                            <option className="option-menu" value="2">M</option>
+                                            <option className="option-menu" value="3">L</option>
+                                        </select>
                                     </div>
                                     <br />
-                                    <div>
-                                        <a href="/home" className="minus-icon">
-                                            <img className="image2" src="/minus-icon.svg" alt="quantity minus one"/>
-                                        </a> 
-                                        &nbsp;
-                                        <input type="number" step="1" min="0" value="1" name="quantity" className="quantity-field border-0 text-center w-25"/>
-                                        &nbsp;
-                                        <a href="/home" className="plus-icon">
-                                            <img className="image2" src="/plus-icon.svg" alt="quantity plus one"/>
-                                        </a> 
+
+                                    <div className="mx-auto def-number-input number-input safari_only">
+                                        <button onClick={increment}
+                                            className="minus"></button>
+                                        <input className="quantity fw-bold text-black" min="0" name="quantity" type="number"/>
+                                        <button onClick={increment}
+                                            className="plus"></button>
                                     </div>
                                     <div className="cart mt-4 align-items-center">
                                         &nbsp;
