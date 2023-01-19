@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { addAddress } from "../../actions/AddressActions";
 import "./Address.css";
 
 const Address: React.FC<any> = () => {
+
+  const appState = useSelector<any, any>((state: any) => state);
   const dispatch = useDispatch();
 
   // use =State hooks to declare some state that will hold user information
@@ -36,15 +38,14 @@ const Address: React.FC<any> = () => {
   const navigate = useNavigate();
   const address = async () => {
 
-    await dispatch(
-      addAddress({
+  
+    await  addAddress({
         streetName,
         apartmentUnit,
         cityName,
         stateName,
         zipCode
-      }, navigate ) as any
-    );
+      }, navigate, appState.customer.customerId ) 
   };
 
   return (

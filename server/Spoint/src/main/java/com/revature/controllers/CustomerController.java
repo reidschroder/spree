@@ -1,6 +1,8 @@
 package com.revature.controllers;
 
+import com.revature.daos.AddressDAO;
 import com.revature.daos.CustomerDAO;
+import com.revature.models.Address;
 import com.revature.models.Customer;
 import com.revature.models.LoginDTO;
 import com.revature.models.ReturnLoginDTO;
@@ -18,12 +20,12 @@ import java.util.Optional;
 public class CustomerController {
 
     private CustomerDAO cDAO;
-
+    private AddressDAO aDAO;
 
     @Autowired
-    public CustomerController(CustomerDAO cDAO){
-
+    public CustomerController(CustomerDAO cDAO, AddressDAO aDAO){
         this.cDAO = cDAO;
+        this.aDAO = aDAO;
     }
 
     //HTTP Requests ===========
@@ -67,12 +69,9 @@ public class CustomerController {
         Optional<Customer> customerOptional = cDAO.findById(id);
 
         if(customerOptional.isPresent()){
-
             Customer extractedCustomer = customerOptional.get();
-
             return ResponseEntity.ok(extractedCustomer);
         }
-
         return ResponseEntity.badRequest().build();
     }
 
@@ -91,15 +90,27 @@ public class CustomerController {
                 return ResponseEntity.accepted().body(rDTO);
             }
         }
-
         return ResponseEntity.status(406).build();
-
-
     }
 
-
-
-
-
-
+    @PutMapping("/customer/{id}/address")
+    public ResponseEntity updateAddress (@PathVariable("id") int id, @RequestBody Integer addressId) {
+        System.out.println("HELLO FROM BACKEND ADDRESS");
+        Optional<Customer> customerOptional = cDAO.findById(id);
+        Optional<Address> addressOptional = aDAO.findById(addressId);
+        if(addressOptional.isPresent()) {
+            Address a = addressOptional.get();
+            if (customerOptional.isPresent()) {
+                Customer c = customerOptional.get();
+                c.setAddress(a);
+                c = cDAO.save(c);
+                if (c == null) {
+                    return ResponseEntity.internalServerError().body("Failed to update address!");
+                }
+                return ResponseEntity.accepted().body(c);
+            }
+            return ResponseEntity.badRequest().body("Customer does not exist!");
+        }
+        return ResponseEntity.badRequest().body("Address does not exist!");
+    }
 }

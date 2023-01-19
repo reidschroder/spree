@@ -9,7 +9,6 @@ import Nav from './components/Nav/Nav';
 import Cart from './components/Cart/Cart';
 import DarkMode from './components/DarkMode/DarkMode';
 import ProductList from './components/ProductList/ProductList';
-import Checkout from './components/Checkout/Checkout';
 import Address from './components/Address/Address';
 import ProductPage from './components/ProductPage/ProductPage';
 
@@ -28,7 +27,6 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/cart" element={<Cart/>}/>
-          <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/address" element ={<Address/>}/>
         </Routes>
       </BrowserRouter>
