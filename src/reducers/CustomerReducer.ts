@@ -1,9 +1,13 @@
-import { LOGIN_USER, LOGOUT_USER } from "../actions/ActionTypes";
+import { GET_PROFILE, LOGIN_USER, LOGOUT_USER } from "../actions/ActionTypes";
 import { Customer } from "../store/types";
 
 let initialState: Customer = {
     customerId: 0,
-    customerUsername: ""
+    customerUsername:"",
+    customerFirstName:"",
+    customerLastName:"",
+    customerEmail:"",
+    customerAddress:""
 }
 
 type Action = {
@@ -22,6 +26,11 @@ export const CustomerReducer = (state: Customer = initialState, action: Action) 
         case LOGOUT_USER:
             initialState = action.payload
             return {
+                ...initialState
+            }
+        case GET_PROFILE:
+            initialState = action.payload
+            return{
                 ...initialState
             }
         default:

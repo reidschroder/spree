@@ -33,7 +33,11 @@ export const loginCustomer = (creds: CustomerLogin) => async (dispatch: any) => 
             //this is the payload of new data we're going to dispatch to the store
             loggedInCustomer = {
                 customerId: response.data.customerId,
-                customerUsername: response.data.customerUsername
+                customerUsername: response.data.customerUsername,
+                customerFirstName: "",
+                customerLastName: "",
+                customerEmail: "",
+                customerAddress: ""
             }
 
             //now we actually DISPATCH (send) this data to the store and reducers 
@@ -72,7 +76,11 @@ export const logoutCustomer = () => {
    
     loggedOutCustomer = {
         customerId: 0,
-        customerUsername: ''
+        customerUsername: '',
+        customerFirstName: '',
+        customerLastName: '',
+        customerEmail: '',
+        customerAddress: ''
     }
 
     return {

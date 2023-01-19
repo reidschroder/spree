@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Customer } from "../../store/types";
+import { retrieveProfile } from '../../actions/ProfileActions';
 
 const Profile : React.FC<any> = (props: any) => {
+
+  
   
   const appState = useSelector<any, any>((state) => state);
 
   const dispatch = useDispatch(); //will use when posting new address
-  
+
+
   let navigate = useNavigate();
   const routeChange = () => 
   {
@@ -17,6 +20,14 @@ const Profile : React.FC<any> = (props: any) => {
 
   }
 
+ const getProfile = async () => 
+ {
+    await dispatch( retrieveProfile( appState.customer.customerId) as any );
+ };
+
+ useEffect( () => { 
+
+  getProfile() }, [] )
 
 
   
@@ -96,7 +107,7 @@ const Profile : React.FC<any> = (props: any) => {
                 <p className="mb-0">First Name</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Template Literal - "Enter First Name"</p>
+                <p className="text-muted mb-0"> {`${appState.customer.customerFirstName}`} </p>
               </div>
             </div>
             <hr />
@@ -105,7 +116,7 @@ const Profile : React.FC<any> = (props: any) => {
                 <p className="mb-0">Last name</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Template Literal - Enter Last Name"</p>
+                <p className="text-muted mb-0">{`${appState.customer.customerLastName}`}</p>
               </div>
             </div>
             <hr/>
@@ -114,7 +125,7 @@ const Profile : React.FC<any> = (props: any) => {
                 <p className="mb-0">Email</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Template Literal - Enter Email Address" </p>
+                <p className="text-muted mb-0">{`${appState.customer.customerEmail}`}</p>
               </div>
             </div>
             <hr />
@@ -123,7 +134,7 @@ const Profile : React.FC<any> = (props: any) => {
                 <p className="mb-0">Address</p>
               </div>
               <div className="col-sm-9">
-                <p className="text-muted mb-0">Template Literal AFTER user updates Address</p>
+                <p className="text-muted mb-0">(`${appState.customer.customerAddress}`)</p>
               </div>
             </div>
           </div>
