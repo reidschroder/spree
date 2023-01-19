@@ -1,5 +1,5 @@
 import React from 'react'
-import FeaturedProducts from '../FeaturedProducts/FeaturedProducts'
+import FeaturedProductsList from '../FeaturedProductsList/FeaturedProductsList'
 import ProductList from '../ProductList/ProductList'
 import "./Home.css"
 
@@ -8,7 +8,7 @@ const Home: React.FC<any> = () => {
   
   return (
     <div>
-      <FeaturedProducts/>
+      <FeaturedProductsList/>
       {/* Add bar here */}
       <hr className="solid"></hr>
       <ProductList/>

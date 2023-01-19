@@ -22,13 +22,13 @@ function App() {
       <ProductPage/>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ProductList/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/home" element={<Home/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/cart" element={<CartCheckout/>}/>
-          <Route path="/address" element ={<Address/>}/>
+          <Route path="/address" element={<Address/>}/>
         </Routes>
       </BrowserRouter>
     </div>

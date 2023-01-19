@@ -1,44 +1,43 @@
 import React from 'react'
 
-const FeaturedProducts = () => {
+const FeaturedProducts = (props: any) => {
 
-
+  // "https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
   return (
-    <section style={{backgroundColor: 'white'}}>
-  <div className="text-center container py-5">
-    <h4 className="mt-4 mb-5"><strong>Featured Products</strong></h4>
-
-    <div className="row">
-      <div className="col-lg-4 col-md-12 mb-4">
-        <div className="card">
-          <div className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-            data-mdb-ripple-color="light">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
-              className="w-100" />
-            <a href="#!">
-              <div className="mask">
-                <div className="d-flex justify-content-start align-items-end h-100">
-                  <h5><span className="badge bg-primary ms-2">New</span></h5>
-                </div>
+    <div className="col-lg-4 col-md-12 mb-4">
+      <div className="card">
+        <div className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+          data-mdb-ripple-color="light">
+          <img src={props.url}
+            className="w-100" />
+          <a href="#!">
+            <div className="mask">
+              <div className="d-flex justify-content-start align-items-end h-100">
+                <h5><span className="badge bg-primary ms-2">New</span></h5>
               </div>
-              <div className="hover-overlay">
-                <div className="mask" style={{backgroundColor: 'lightgray'}}></div>
-              </div>
-            </a>
-          </div>
-          <div className="card-body">
-            <a href="" className="text-reset">
-              <h5 className="card-title mb-3">Product name</h5>
-            </a>
-            <a href="" className="text-reset">
-              <p>Category</p>
-            </a>
-            <h6 className="mb-3">$61.99</h6>
-          </div>
+            </div>
+            <div className="hover-overlay">
+              <div className="mask" style={{backgroundColor: 'lightgray'}}></div>
+            </div>
+          </a>
+        </div>
+        <div className="card-body">
+          <a href="" className="text-reset">
+            <h5 className="card-title mb-3">{props.name}</h5>
+          </a>
+          <a href="" className="text-reset">
+            <p>{props.type}</p>
+          </a>
+          <h6 className="mb-3">{props.price}</h6>
         </div>
       </div>
+    </div>
+  )
+}
 
-      {/* <div className="col-lg-4 col-md-6 mb-4">
+export default FeaturedProducts
+
+/* <div className="col-lg-4 col-md-6 mb-4">
         <div className="card">
           <div className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
             data-mdb-ripple-color="light">
@@ -190,11 +189,4 @@ const FeaturedProducts = () => {
             </h6>
           </div>
         </div>
-      </div> */}
-    </div>
-  </div>
-</section>
-  )
-}
-
-export default FeaturedProducts
+      </div> */
