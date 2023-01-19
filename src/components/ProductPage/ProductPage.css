@@ -1,5 +1,6 @@
 body{
-    background-color: #eee
+    /* background-color: ivory; */
+
 }
 
 .card{
@@ -7,7 +8,9 @@ body{
 }
 
 .product{
-    background-color: thistle
+    background-color: aliceblue;
+    /* added to ensure that you could still see the text on the aliceblue background since that actually doesn't flip with darkmode */
+    color: navy;
 }
 
 .brand{
@@ -15,7 +18,8 @@ body{
 }
 
 .act-price{
-    color: black;
+    /* original color was red then black but no to yellow because it was good for the navy but it's terrible on about everything else */
+    /* color: yellow; */
     font-weight: 700
 }
 
@@ -64,7 +68,7 @@ label.radio input:checked+span{
 }
 
 .btn-danger:hover{
-    background-color: blue !important;
+    background-color: powderblue !important;
     border-color: black !important
 }
 

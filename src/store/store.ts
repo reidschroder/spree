@@ -17,6 +17,9 @@ const state: AppState = {
     },
     productList: {
         products: []
+    },
+    cartList: {
+        cart: []
     }
 }
 

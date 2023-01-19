@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './CartCheckout.css'
 
-const CartCheckout = () => {
+const CartCheckout: React.FC<any> = () => {
 
-const increment = (input: any) => {
-  if (input.target.className === "plus") {
-    return input.target.parentNode.querySelector('input[type=number]').stepUp()
+  const appState = useSelector<any, any>((state) => state);
+  const dispatch = useDispatch();
+  const [delItem, setDelItem] = useState();
+
+  const increment = (input: any) => {
+    if (input.target.className === "plus") {
+      return input.target.parentNode.querySelector('input[type=number]').stepUp()
+    }
+    else {
+        return input.target.parentNode.querySelector('input[type=number]').stepDown()
+    }
   }
-  else {
-      return input.target.parentNode.querySelector('input[type=number]').stepDown()
-  }
+
+
+
+const removeFromCart = (delItem: any) => {
+  // delItem is the event item
+  // we want to see/check what attribute is the id of the product
+  // then do dispatch 
+  // if (delItem.target.productId ===)
 }
 
   return (

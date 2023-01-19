@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { addAddress } from "../../actions/AddressActions";
 import "./Address.css";
 
@@ -38,7 +38,6 @@ const Address: React.FC<any> = () => {
   const navigate = useNavigate();
   const address = async () => {
 
-  
     await  addAddress({
         streetName,
         apartmentUnit,

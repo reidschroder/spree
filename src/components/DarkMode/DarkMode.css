@@ -1,15 +1,15 @@
 /* some lines in App were commented out in App.css because I didn't want these being overwritten when applying dark mode */
 :root {
-    --font-color: #333;
-    --background-color: #eee;
-    --link-color: cornflowerblue;
+    --font-color: navy;
+    --background-color: ivory;
+    --link-color: lightseagreen;
   }
   
-  /* 2 */
+  /* 2  #eee and #333*/
   [data-theme="dark"] {
-    --font-color: #eee;
-    --background-color: #333;
-    --link-color: lightblue;
+    --font-color: ivory;
+    --background-color: navy;
+    --link-color: lightseagreen;
   }
   
   /* 3 */
@@ -57,7 +57,7 @@
   .toggle-theme input {
     display: none;
   }
-  
+  /* below is not being used in any capacity as there is no longer a slider */
   .slider {
     background-color: #ccc;
     position: absolute;
