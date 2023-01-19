@@ -1,6 +1,7 @@
 import { any } from 'prop-types';
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { addProduct } from '../../actions/CartCheckoutActions';
 import "./ProductPage.css"
 
@@ -14,19 +15,48 @@ const ProductPage: React.FC<any> = (props: any) => {
     const appState = useSelector<any, any>((state) => state);
     const dispatch = useDispatch();
 
+    // countRef is a reference to the <input> element that holds the item quantity
+    const countRef = useRef<HTMLInputElement>(null);
+
+    // Converts path variable id into a usable value
+    const { id } = useParams() as any;
+    // Converts id from string to number type
+    const productId = parseInt(id);
+
+    const [quantity, setQuantity] = useState(0);
+    const [size, setSize] = useState("");
+
     const increment = (input: any) => {
         if (input.target.className === "plus") {
-            return input.target.parentNode.querySelector('input[type=number]').stepUp()
+            input.target.parentNode.querySelector('input[type=number]').stepUp()
+            if (countRef.current) {
+                console.log(countRef.current.value);
+                setQuantity(parseInt(countRef.current.value));
+            }
+            return
         }
         else {
-            return input.target.parentNode.querySelector('input[type=number]').stepDown()
+            input.target.parentNode.querySelector('input[type=number]').stepDown()
+            if (countRef.current) {
+                console.log(countRef.current.value);
+                setQuantity(parseInt(countRef.current.value));
+            }
+            return 
+        }
+    }
+   
+    useEffect(() => console.log(productId), [productId]);
+    
+    // gather size input for select dropdown
+    const getInput = (input: any) => {
+        if (input.target.id === "select1") {
+            console.log(input.target.value)
+            setSize(input.target.value);
         }
     }
     
-    // gather input number/value to multiply for quantity select
-    
     const addToCart = async () => {
-       await dispatch(addProduct(appState.cartList.cart, props.id) as any);
+       await dispatch(addProduct(appState.cartList.cart, productId, size, quantity) as any);
     }
 
 
@@ -74,11 +104,11 @@ const ProductPage: React.FC<any> = (props: any) => {
                                     <p className="about">Shop from a wide range of t-shirt from Spoint. Perfect for your everyday use, you could pair it with a stylish pair of jeans or trousers to complete the look.</p>
                                     <div className="sizes mt-5">
                                         <h6 className="text-uppercase"></h6>
-                                        <select className="form-select mx-auto" aria-label="Default select example">
+                                        <select className="form-select mx-auto" id="select1" aria-label="Default select example" onChange={getInput}>
                                             <option className="option-menu" value="" disabled selected hidden>Size</option>
-                                            <option className="option-menu" value="1">S</option>
-                                            <option className="option-menu" value="2">M</option>
-                                            <option className="option-menu" value="3">L</option>
+                                            <option className="option-menu" value="S">S</option>
+                                            <option className="option-menu" value="M">M</option>
+                                            <option className="option-menu" value="L">L</option>
                                         </select>
                                     </div>
                                     <br />
@@ -86,7 +116,7 @@ const ProductPage: React.FC<any> = (props: any) => {
                                     <div className="mx-auto def-number-input number-input safari_only">
                                         <button onClick={increment}
                                             className="minus"></button>
-                                        <input className="quantity fw-bold text-black" min="0" name="quantity" type="number"/>
+                                        <input className="quantity fw-bold text-black" id="count1" ref={countRef} min="0" name="quantity" type="number" onChange={getInput}/>
                                         <button onClick={increment}
                                             className="plus"></button>
                                     </div>

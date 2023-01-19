@@ -13,14 +13,14 @@ import SendEmail from './components/SendEmail/SendEmail';
 import ProductPage from './components/ProductPage/ProductPage';
 import Home from './components/Home/Home';
 import CartCheckout from './components/Cart/CartCheckout';
+import FeaturedProducts from './components/FeaturedProducts/FeaturedProducts';
+import FeaturedProductsList from './components/FeaturedProductsList/FeaturedProductsList';
 
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      {/* <ProductList/> */}
-      {/* <ProductPage/> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>}/>
@@ -30,6 +30,7 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/cart" element={<CartCheckout/>}/>
           <Route path="/address" element={<Address/>}/>
+          <Route path="/product/:id" element={<ProductPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>
