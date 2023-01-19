@@ -21,7 +21,6 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      {/* <ProductList/> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>}/>
@@ -31,6 +30,7 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/cart" element={<CartCheckout/>}/>
           <Route path="/address" element={<Address/>}/>
+          <Route path="/product/:id" element={<ProductPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>
