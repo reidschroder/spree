@@ -37,8 +37,9 @@ const ProductList: React.FC<any> = () => {
   return (
     <div>
         {/* <button onClick={getProducts}>Get Products!</button> */}
-        <section style={{backgroundColor: 'ivory'}}>
+        <section style={{backgroundColor: 'ivory'}}> 
             <div className ="container py-5">
+                <h4 className="mt-4 mb-5"><strong>Shop Spoint</strong></h4>
                 <div className ="row justify-content-center">
                     {products}
                 </div>
