@@ -1,15 +1,23 @@
 import React from 'react'
+import { Route, Routes, useNavigate } from "react-router";
+import ProductPage from "../ProductPage/ProductPage";
+import './FeaturedProducts.css'
 
 const FeaturedProducts = (props: any) => {
+  
+  const navigate = useNavigate();
 
+  const redirectProductPage = () => {
+    navigate(`/product/${props.id}`)
+  }
   // "https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
   return (
-    <div className="col-lg-4 col-md-12 mb-4">
+    <div className="col-lg-4 col-md-12 mb-4 redirectP" role="button" onClick={redirectProductPage}>
       <div className="card">
         <div className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
           data-mdb-ripple-color="light">
-          <img src={props.url}
-            className="w-100" />
+          <img src={props.url} style={{ width: '400px', height: '500px', objectFit: 'contain', position: 'relative'}}/>
+            {/* className="w-100" original style as a className and it wasn't fitting the images the way we wanted*/}
           <a href="#!">
             <div className="mask">
               <div className="d-flex justify-content-start align-items-end h-100">

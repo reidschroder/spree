@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import FeaturedProducts from '../FeaturedProducts/FeaturedProducts';
+import '../DarkMode/DarkMode.css'
 
 const FeaturedProductsList = () => {
     const appState = useSelector<any, any>((state) => state);
@@ -28,7 +29,8 @@ const FeaturedProductsList = () => {
     }
 
     return (
-        <section style={{backgroundColor: 'white'}}>
+        <section >
+            {/* style={{backgroundColor: 'ivory'}} */}
             <div className="text-center container py-5">
             <h4 className="mt-4 mb-5"><strong>Featured Products</strong></h4>
 
