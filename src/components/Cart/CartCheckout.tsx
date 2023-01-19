@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './CartCheckout.css'
+import { useNavigate } from 'react-router'
+import emailjs from '@emailjs/browser'
 
 const CartCheckout: React.FC<any> = () => {
 
@@ -15,6 +17,28 @@ const CartCheckout: React.FC<any> = () => {
     else {
         return input.target.parentNode.querySelector('input[type=number]').stepDown()
     }
+  }
+
+
+  let navigate = useNavigate();
+
+  const sendEmail = (e:any) => 
+    {
+        e.preventDefault();
+
+        emailjs.send("service_iugqxzp","template_r361rbg",{
+          customerUsername: `${appState.customer.customerUsername}`,
+          subject: "Spoint Attire",
+          customerEmail: `${appState.customer.customerEmail}`,
+          },"dc-GXX1QtsLE6Mg9w")
+        
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+     // e.target.reset()
+      navigate("/profile");
   }
 
 
@@ -138,7 +162,7 @@ const removeFromCart = (delItem: any) => {
 
                     <p className="mb-5">Complete your order below and thank you for shopping at Spoint, where blue is beautiful.</p>
 
-                    <button type="button" className="btn btn-primary btn-block btn-lg">Place Your Order</button>
+                    <button type="button" onClick={sendEmail} className="btn btn-primary btn-block btn-lg">Place Your Order</button>
 
                     <h5 className="fw-bold mb-5 pt-5"  >
                       <a href="#!"><i 

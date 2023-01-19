@@ -9,6 +9,7 @@ import Nav from './components/Nav/Nav';
 import DarkMode from './components/DarkMode/DarkMode';
 import ProductList from './components/ProductList/ProductList';
 import Address from './components/Address/Address';
+import SendEmail from './components/SendEmail/SendEmail';
 import ProductPage from './components/ProductPage/ProductPage';
 import Home from './components/Home/Home';
 import CartCheckout from './components/Cart/CartCheckout';
