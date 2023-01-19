@@ -1,6 +1,5 @@
 import React from "react";
-import { Route, Routes, useNavigate } from "react-router";
-import ProductPage from "../ProductPage/ProductPage";
+import { useNavigate } from "react-router";
 import "./Product.css"
 const Product: React.FC<any> = (props: any) => {
 
@@ -30,9 +29,6 @@ const Product: React.FC<any> = (props: any) => {
           </div>
         </div>
       </div>
-      <Routes>
-        <Route path="/product/:id" element={<ProductPage id={props.id}/>}/>
-      </Routes>
     </div>
   );
 };
