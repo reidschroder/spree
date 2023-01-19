@@ -15,8 +15,13 @@ export interface ProductList {
     products: Array<any>
 }
 
+export interface CartList {
+    cart: Array<any>
+}
+
 export type AppState = {
     customer: Customer,
     darkMode: DarkModeState,
-    productList: ProductList
+    productList: ProductList,
+    cartList: CartList
 }

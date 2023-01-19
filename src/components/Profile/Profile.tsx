@@ -5,36 +5,27 @@ import { retrieveProfile } from '../../actions/ProfileActions';
 
 const Profile : React.FC<any> = (props: any) => {
 
-  
-  
   const appState = useSelector<any, any>((state) => state);
 
   const dispatch = useDispatch(); //will use when posting new address
 
-
   let navigate = useNavigate();
-  const routeChange = () => 
-  {
-    let path = `/address`;
-    navigate(path);
-
+  const routeChange = () => {
+    navigate("/address");
   }
 
- const getProfile = async () => 
- {
-    await dispatch( retrieveProfile( appState.customer.customerId) as any );
- };
+  const getProfile = async () => {
+    await dispatch( retrieveProfile(appState.customer.customerId) as any );
+  };
 
- useEffect( () => { 
-
-  getProfile() }, [] )
-
-
+  useEffect(() => { 
+    getProfile() 
+  }, [])
   
   return (
     <div className="Profile">
-        
-        <section style={{ backgroundColor: "#eee" }}>
+        {/* backgroundColor was #eee */}
+        <section style={{ backgroundColor: 'ivory' }}>
   <div className="container py-5">
     
     <div className="row">
@@ -298,7 +289,7 @@ const Profile : React.FC<any> = (props: any) => {
       </div>
     </div>
   </div>
-</section>
+  </section>
 
 
     </div>

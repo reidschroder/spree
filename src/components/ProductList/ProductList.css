@@ -1,0 +1,27 @@
+:root {
+    --font-color: navy;
+    --background-color: ivory;
+    --link-color: lightseagreen;
+  }
+  
+  /* 2  #eee and #333*/
+  [data-theme="dark"] {
+    --font-color: ivory;
+    --background-color: navy;
+    --link-color: lightseagreen;
+  }
+  
+  /* 3 */
+  body {
+    background-color: var(--background-color);
+    color: var(--font-color);
+  }
+  
+  a {
+    color: var(--link-color);
+  }
+
+  .img{
+    max-height:100%;
+    height: auto;
+}
