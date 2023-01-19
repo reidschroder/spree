@@ -104,4 +104,21 @@ public class Address {
                 ", zipCode=" + zipCode +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Address aObj = (Address) obj;
+
+        if (this.streetName.equals(aObj.getStreetName()))
+            return false;
+        if (this.apartmentUnit.equals(aObj.getApartmentUnit()))
+            return false;
+        if (this.cityName.equals(aObj.getCityName()))
+            return false;
+        if (this.stateName.equals(aObj.getStateName()))
+            return false;
+        if (this.zipCode == aObj.getZipCode())
+            return false;
+        return true;
+    }
 }

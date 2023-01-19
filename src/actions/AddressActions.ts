@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 interface CustomerAddress
 {
     streetName: string,
-        apartmentUnit: string,
-        cityName: string,
-        stateName: string,
-        zipCode: string
+    apartmentUnit: string,
+    cityName: string,
+    stateName: string,
+    zipCode: string
 }
 
-export const addAddress = (addressinfo: CustomerAddress, navigate:Function) => async (dispatch: any) =>
+export const addAddress = async (addressinfo: CustomerAddress, navigate:Function, customerId: number) =>
 {
     try {
         // send my HTTP request with axios, and put it into a variable we can use
@@ -18,12 +18,20 @@ export const addAddress = (addressinfo: CustomerAddress, navigate:Function) => a
 
         if (response.status === 202)
         {
+            console.log(response);
+            console.log(response.data.addressId);
+            console.log(customerId);
             
-            console.log(response) // to see the data coming back
+            const response2 = await axios.put(`http://localhost:5555/data/customer/${customerId}/address`, response.data.addressId, {
+                headers: { "Content-type": "application/json" }
+              }).then((info: any) => console.log(info)).catch((error: any) => console.log(error));
+            
+            console.log(response2);
             navigate("/profile");
         }
-    } catch(e)
+    } 
+    catch(e)
     {
-        console.log("Could not add ADDRESS")
+        console.log("Could not add ADDRESS" + e)
     }
 }
