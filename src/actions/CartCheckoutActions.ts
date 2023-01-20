@@ -1,6 +1,7 @@
 import axios from "axios";
+import { async } from "q";
 import { CartList } from "../store/types";
-import { ADD_PRODUCT, DEL_PRODUCT } from "./ActionTypes";
+import { ADD_PRODUCT, CLEAR_ALL_PRODUCTS, DEL_PRODUCT } from "./ActionTypes";
 
 
 export const addProduct = (currentCart: Array<any>, productId: number, productSize: string = "S", productQuantity: number) => async (dispatch: any) => {
@@ -58,4 +59,15 @@ export const delProduct = (currentCart: Array<any>, productId: number, productSi
     catch (e) {
         console.log(e);
     }
+}
+
+export const clearCart = () => async (dispatch: any) => {
+    let emptyCart: CartList = {
+        cart: []
+    };
+
+    return dispatch({
+        type: CLEAR_ALL_PRODUCTS,
+        payload: emptyCart
+    })
 }

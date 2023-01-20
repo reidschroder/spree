@@ -18,9 +18,9 @@ export const SendEmail : React.FC<any> = () => {
             customerEmail: `${appState.customer.customerEmail}`,
             },"dc-GXX1QtsLE6Mg9w")
           
-        .then((result) => {
+        .then((result: any) => {
             console.log(result.text);
-        }, (error) => {
+        }, (error: any) => {
             console.log(error.text);
         });
        // e.target.reset()
