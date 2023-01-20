@@ -16,6 +16,7 @@ import CartCheckout from './components/Cart/CartCheckout';
 import FeaturedProducts from './components/FeaturedProducts/FeaturedProducts';
 import FeaturedProductsList from './components/FeaturedProductsList/FeaturedProductsList';
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
+import OutOfBounds from './components/OutOfBounds/OutOfBounds';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/address" element={<Address/>}/>
           <Route path="/product/:id" element={<ProductPage/>}/>
           <Route path="/orderconfirmation" element={<OrderConfirmation/>}/>
+          <Route path="/*" element={<OutOfBounds/>}/>
         </Routes>
       </BrowserRouter>
     </div>
