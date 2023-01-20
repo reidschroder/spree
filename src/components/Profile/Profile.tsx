@@ -33,7 +33,7 @@ const Profile : React.FC<any> = (props: any) => {
         <div className="card mb-4">
 
 
-          <div className="card-body text-center">
+          <div className="card-body text-center rounded shadow-sm p-3">
           <h4 className="Card Name mb-3">Welcome to your Spoint profile,</h4>
             <h4 className="Card Name">{`${appState.customer.customerUsername}`}</h4>
             <div className="d-flex justify-content-center mb-2 mt-4">
@@ -46,7 +46,7 @@ const Profile : React.FC<any> = (props: any) => {
           </div>
         </div>
         <div className="card mb-4 mb-lg-0">
-          <div className="card-body p-0">
+          <div className="card-body p-0 rounded shadow-sm p-3">
             <ul className="list-group list-group-flush rounded-3">
             
               <li className="list-group-item d-flex justify-content-between align-items-center p-3">
@@ -54,7 +54,7 @@ const Profile : React.FC<any> = (props: any) => {
                   className=""
                   style={{ color: "#333333" }}
                 />
-                <h6 className="mb-0"> Thanks for using Spoint! <br/><br/><br/> If you have any questions or concerns about your account, please reach out to us at <br/> <strong >Spointattire@gmail.com</strong> </h6>
+                <h6 className="mb-0"> Thanks for using Spoint! <br/><br/><br/> If you have any questions or concerns about your account, please reach out to us  <br/> <strong >Spointattire@gmail.com</strong> </h6>
               </li>
               
               <li className="list-group-item d-flex justify-content-between align-items-center p-3">
@@ -72,7 +72,7 @@ const Profile : React.FC<any> = (props: any) => {
       </div>
       <div className="col-lg-8 align-self-center ">
         <div className="card mb-4 "  >
-          <div className="card-body ">
+          <div className="card-body rounded shadow-sm p-3">
             <div className="row">
               <div className="col-sm-3">
                 <p className="mb-0">First Name</p>
