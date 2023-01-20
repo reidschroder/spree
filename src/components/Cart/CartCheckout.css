@@ -1,4 +1,4 @@
-@media (min-width: 1025px) {
+/* @media (min-width: 1025px) {
     .h-custom {
     height: 100vh !important;
     }
@@ -117,4 +117,18 @@
     .shopping-cart .def-number-input.number-input button.plus:before,
     .shopping-cart .def-number-input.number-input button.plus:after {
     background-color: #4285f4;
-    }
+    } */
+
+        .btn-danger {
+            background-color: black !important;
+            border-color: black !important
+        }
+    
+        .btn-danger:hover {
+            background-color: #60AEE8 !important;
+            border-color: black !important
+        }
+    
+        .btn-danger:focus {
+            box-shadow: none
+        }

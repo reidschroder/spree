@@ -1,15 +1,20 @@
 /* some lines in App were commented out in App.css because I didn't want these being overwritten when applying dark mode */
+/* #60AEE8 a light sea-ish blue that could work 
+    #ABD4F1 same deal but slightly lighter
+    #A29FCD light purple, technically legible, not a fav tho
+
+*/
 :root {
-    --font-color: navy;
-    --background-color: ivory;
-    --link-color: lightseagreen;
+    --font-color: #0A1042;
+    --background-color: #CEE9FC ;
+    --link-color: #0A1042;
   }
   
   /* 2  #eee and #333*/
   [data-theme="dark"] {
-    --font-color: ivory;
-    --background-color: navy;
-    --link-color: lightseagreen;
+    --font-color: #60AEE8;
+    --background-color: #0A1042;
+    --link-color: #60AEE8;
   }
   
   /* 3 */

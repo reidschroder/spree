@@ -190,60 +190,7 @@ const CartCheckout: React.FC<any> = () => {
                 <div className="col-lg-6 px-5 py-4">
 
                   <h3 className="mb-5 pt-2 text-center fw-bold text-uppercase">Shopping Cart</h3>
-                  {/* first item in the shopping cart */}
-                  <div className="d-flex align-items-center mb-5">
-                    <div className="flex-shrink-0">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
-                        className="img-fluid" style={{width: '150px'}} alt="Generic placeholder"/>
-                        {/* image that may need to be styled */}
-                    </div>
-                    <div className="flex-grow-1 ms-3">
-                      <a href="#!" className="float-end text-black" ><i className= "fas fa-times"></i></a>
-                      {/* used to have a className="text-primary" in the header, changed the color, don't want */}
-                      <h5>Product Name</h5>
-                      {/* style={{color: 'lightgray'}} used to be in the h6, don't like it though so no */}
-                      <h6>Size: ` ${} `</h6> 
-                      <p>Price: ` ${} ` </p>
-                      {/* <div className="d-flex align-items-center">
-                        <p className="fw-bold mb-0 me-5 pe-3">Price:</p>
-                        <div className="def-number-input number-input safari_only">
-                          <button onClick={increment}
-                           className="minus"></button>
-                          <input className="quantity fw-bold text-black" min="0" name="quantity"
-                            type="number"/>
-                          <button onClick={increment}
-                            className="plus"></button>
-                        </div>
-                      </div> */}
-                    </div>
-                  </div>
-                  {/* the second item in the shopping cart */}
-                  <div className="d-flex align-items-center mb-5">
-                    <div className="flex-shrink-0">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp"
-                        className="img-fluid" style={{width: '150px'}} alt="Generic placeholder"/>
-                    </div>
-                    <div className="flex-grow-1 ms-3">
-                      <a href="#!" className="float-end text-black"><i className="fas fa-times"></i></a>
-                      {/* used to have a className="text-primary" in the header, changed the color, don't want */}
-                      <h5 >blue clothing 2</h5>
-                      {/* style={{color: 'lightgray'}} used to be in the h6, don't like it though so no */}
-                      <h6>Size: ` ${} `</h6>
-                      <p>Price: ` ${} `</p>
-                      {/* <div className="d-flex align-items-center">
-                        <p className="fw-bold mb-0 me-5 pe-3">Price</p>
-                        <div className="def-number-input number-input safari_only">
-                          <button onClick={increment}
-                            className="minus"></button>
-                          <input className="quantity fw-bold text-black" min="0" name="quantity" type="number"/>
-                          <button onClick={increment}
-                            className="plus"></button>
-                        </div>
-                      </div> */}
-                    </div>
-                  </div>
-
-
+                  {/* item in the shopping cart */}
                     {cart}
                   
                   {/* bar separating cart from the total 
@@ -251,15 +198,9 @@ const CartCheckout: React.FC<any> = () => {
                   */}
                   <hr className="mb-4" style={{height: '2px', opacity: 1}}/>
 
-                  {/* <div className="d-flex justify-content-between px-x">
-                    <p className="fw-bold">Discount:</p>
-                    <p className="fw-bold">95$</p>
-                  </div> */}
-
                   {/* the total bar color and text style={{backgroundColor: 'lightskyblue' }}*/}
                   <div className="d-flex justify-content-between p-2 mb-2" >
                     <h5 className="fw-bold mb-0">Total:</h5>
-
                     <h5 className="fw-bold mb-0">${getTotalPrice()}</h5>
 
                   </div>
@@ -305,10 +246,11 @@ const CartCheckout: React.FC<any> = () => {
 
                     <p className="mb-5">Complete your order below and thank you for shopping at Spoint, <br/>where blue is beautiful.</p>
 
-                    <button type="button" onClick={sendEmail}  className="btn btn-primary btn-block btn-lg">Place Your Order</button>
+                    <button type="button" onClick={sendEmail} className="btn btn-danger btn-lg">Place Your Order</button>
+
 
                     <h5 className="fw-bold mb-5 pt-5"  >
-                      <a href="#!"><i 
+                      <a href="/home"><i 
                       className="fas fa-angle-left me-2"></i>Continue Shopping</a>
                     </h5>
                   </form>

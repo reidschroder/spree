@@ -24,8 +24,8 @@ const Profile : React.FC<any> = (props: any) => {
   
   return (
     <div className="Profile">
-        {/* backgroundColor was #eee */}
-        <section style={{ backgroundColor: 'ivory' }}>
+        {/* backgroundColor was #eee style={{ backgroundColor: 'ivory' }}*/}
+        <section >
   <div className="container py-5">
     
     <div className="row ">

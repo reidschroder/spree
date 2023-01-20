@@ -10,7 +10,7 @@ body{
 .product{
     background-color: aliceblue;
     /* added to ensure that you could still see the text on the aliceblue background since that actually doesn't flip with darkmode */
-    color: navy;
+    color: #0A1042;
 }
 
 .brand{

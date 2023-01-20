@@ -1,27 +1,27 @@
-:root {
+ /* :root {
     --font-color: navy;
     --background-color: ivory;
     --link-color: lightseagreen;
-  }
+  } */
   
   /* 2  #eee and #333*/
-  [data-theme="dark"] {
+  /* [data-theme="dark"] {
     --font-color: ivory;
     --background-color: navy;
     --link-color: lightseagreen;
-  }
+  } */
   
   /* 3 */
-  body {
+  /* body {
     background-color: var(--background-color);
     color: var(--font-color);
   }
-  
-  a {
+   */
+  /* a {
     color: var(--link-color);
-  }
+  } */
 
-  .img{
+  /* .img{
     max-height:100%;
     height: auto;
-}
+} */

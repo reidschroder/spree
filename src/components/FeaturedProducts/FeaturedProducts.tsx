@@ -8,7 +8,7 @@ const FeaturedProducts = (props: any) => {
   const navigate = useNavigate();
 
   const redirectProductPage = () => {
-    navigate(`/product/${props.id}`)
+    navigate(`/product/${props.productId}`)
   }
   // "https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
   return (
@@ -31,12 +31,12 @@ const FeaturedProducts = (props: any) => {
         </div>
         <div className="card-body">
           <a href="" className="text-reset">
-            <h5 className="card-title mb-3">{props.name}</h5>
+            <p className="card-title">{props.name}</p>
           </a>
           <a href="" className="text-reset">
             <p>{props.type}</p>
           </a>
-          <h6 className="mb-3">{props.price}</h6>
+          <h6 className="mb-3">${props.price}</h6>
         </div>
       </div>
     </div>
