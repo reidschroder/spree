@@ -36,22 +36,17 @@ const Nav: React.FC<any> = () => {
             <li className="nav-item">
                   <DarkMode />
             </li>
+            <li className="nav-item">
+                  <a className="nav-link" href="/cart">
+                    Cart
+                  </a>
+            </li>      
             {" "}
              {appState.customer.customerId > 0 ? ( 
               <>
                 <li className="nav-item">
                   <a className="nav-link" href="/profile">
                     View Profile
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/cart">
-                    Cart
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/checkout">
-                    Checkout
                   </a>
                 </li>
                 <li className="nav-item">
