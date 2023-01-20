@@ -12,7 +12,7 @@ const FeaturedProductsList = () => {
 
     const getFeaturedProducts = () => {
         let prodArr = appState.productList.products;
-        prodArr.slice(3);
+        prodArr.splice(3);
         setFeatured(
             prodArr.map(
                 (product: any) =>
