@@ -29,8 +29,8 @@ const FeaturedProductsList = () => {
     }
 
     return (
-        <section >
-            {/* style={{backgroundColor: 'ivory'}} */}
+        <section>
+            
             <div className="text-center container py-5">
             <h4 className="mt-4 mb-5"><strong>Featured Products</strong></h4>
 

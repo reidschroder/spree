@@ -28,21 +28,10 @@ const CartProduct: React.FC<any> = (props: any) => {
         </div>
         <div className="flex-grow-1 ms-3">
             <a href="#!" className="float-end text-black"><i className= "fas fa-times" onClick={removeFromCart}></i></a>
-            {/* requires a template literal */}
-            <h5 className="text-primary">{props.name}</h5>
-            <h6 style={{color: 'lightgray'}}>Size: {props.size} </h6>
-            <div className="d-flex align-items-center">
-                <p className="fw-bold mb-0 me-5 pe-3">Price: {props.price}</p>
-                <p className="fw-bold mb-0 me-5 pe-3">Quantity: {props.quantity}</p>
-                {/* <div className="def-number-input number-input safari_only">
-                    <button onClick={increment}
-                    className="minus"></button>
-                    <input className="quantity fw-bold text-black" min="0" name="quantity"
-                    type="number" value={props.quantity}/>
-                    <button onClick={increment}
-                    className="plus"></button>
-                </div> */}
-            </div>
+            <h5>{props.name}</h5>
+            <h6>Size: {props.size} </h6>
+            <p className='mt-1'>Price: {props.price}</p>
+            <p>Quantity: {props.quantity}</p>
         </div>
     </div>
     )

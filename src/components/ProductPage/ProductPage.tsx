@@ -26,6 +26,15 @@ const ProductPage: React.FC<any> = (props: any) => {
     const [quantity, setQuantity] = useState(0);
     const [size, setSize] = useState("");
 
+    const getProduct = () => {
+        for (const p of appState.productList.products) {
+            if (p.productId === productId) {
+                return p;
+            }
+        }
+    }
+    const [product, setProduct] = useState(getProduct());
+
     const increment = (input: any) => {
         if (input.target.className === "plus") {
             input.target.parentNode.querySelector('input[type=number]').stepUp()
@@ -46,6 +55,10 @@ const ProductPage: React.FC<any> = (props: any) => {
     }
    
     useEffect(() => console.log(productId), [productId]);
+    useEffect(() => {
+        if (productId > 0) 
+            getProduct() 
+    }, []);
     
     // gather size input for select dropdown
     const getInput = (input: any) => {
@@ -59,23 +72,25 @@ const ProductPage: React.FC<any> = (props: any) => {
        await dispatch(addProduct(appState.cartList.cart, productId, size, quantity) as any);
     }
 
+    
+
 
   return (
     <div>
         <div className="container mt-5 mb-5">
             <div className="row d-flex justify-content-center">
                 <div className="col-md-10">
-                    <div className="card">
+                    <div className="card rounded shadow-sm">
                         <div className="row">
                             <div className="col-md-6">
-                                <div className="images p-3">
-                                    <div className="text-center p-4"> 
-                                        <img id="main-image" src="https://i.imgur.com/Dhebu4F.jpg" alt='clothing' width={300}/> 
+                                <div className="images">
+                                    <div className="text-center"> 
+                                        <img id="main-image" src={product.productImgUrl} alt='clothing' width={300} height={300}/> 
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-6">
-                                <div className="product p-4">
+                                <div className="product rounded p-4">
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="d-flex align-items-center"> 
                                             {/* links back to home because it's a back button */}
@@ -90,9 +105,9 @@ const ProductPage: React.FC<any> = (props: any) => {
                                     </div>
                                     <div className="mt-4 mb-3">
                                         <span className="text-uppercase text-muted brand">Spoint</span>
-                                        <h5 className="text-uppercase">Product Name</h5>
+                                        <h5 className="text-uppercase">{product.productName}</h5>
                                         <div className="price d-flex flex-row align-items-center">
-                                            <span className="act-price">$20</span>
+                                            <span className="act-price">{product.productPrice}</span>
                                             &nbsp;
                                             &nbsp;
                                             {/* <div className="ml-2">
@@ -101,7 +116,7 @@ const ProductPage: React.FC<any> = (props: any) => {
                                             </div> */}
                                         </div>
                                     </div>
-                                    <p className="about">Shop from a wide range of t-shirt from Spoint. Perfect for your everyday use, you could pair it with a stylish pair of jeans or trousers to complete the look.</p>
+                                    <p className="about">{product.productDescription}</p>
                                     <div className="sizes mt-5">
                                         <h6 className="text-uppercase"></h6>
                                         <select className="form-select mx-auto" id="select1" aria-label="Default select example" onChange={getInput}>
