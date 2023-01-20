@@ -20,7 +20,7 @@ const Profile : React.FC<any> = (props: any) => {
 
   useEffect(() => { 
     getProfile() 
-  }, [])
+  })
   
   return (
     <div className="Profile">

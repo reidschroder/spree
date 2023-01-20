@@ -63,7 +63,6 @@ const Nav: React.FC<any> = () => {
                 </a>
               </li>
              )}
-            <li>{appState.customer.customerId}</li>
           </ul>
         </div>
       </nav>

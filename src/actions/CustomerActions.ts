@@ -55,14 +55,13 @@ export const loginCustomer = (creds: CustomerLogin) => async (dispatch: any) => 
     }
 }
 
-export const registerCustomer = (registerInfo: CustomerRegister) => async (dispatch: any) => {
+export const registerCustomer = (registerInfo: CustomerRegister, navigate: Function) => async (dispatch: any) => {
 
     try {
         const response = await axios.post("http://localhost:5555/data/register", registerInfo);
 
         if (response.status === 202) {
             console.log(response);
-            const navigate = useNavigate();
             navigate("/login");
         }
     }

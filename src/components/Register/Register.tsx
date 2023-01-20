@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { registerCustomer } from "../../actions/CustomerActions";
 import "./Register.css";
 
 const Register: React.FC<any> = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // use =State hooks to declare some state that will hold user information
   const [customerFirstName, setCustomerFirstName] = useState("");
@@ -41,7 +43,7 @@ const Register: React.FC<any> = () => {
         customerUsername,
         customerPassword,
         customerEmail
-      }) as any
+      }, navigate) as any
     );
   };
 

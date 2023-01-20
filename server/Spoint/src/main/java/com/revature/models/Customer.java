@@ -21,7 +21,7 @@ public class Customer {
     private String customerUsername;
 
     private String customerPassword;
-
+    
     private String customerEmail;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
