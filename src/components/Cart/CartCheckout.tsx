@@ -83,7 +83,7 @@ const CartCheckout: React.FC<any> = () => {
           console.log(error.text);
       });
      // e.target.reset()
-      navigate("/profile");
+      navigate("/orderconfirmation");
   }
 
 
@@ -238,8 +238,9 @@ const CartCheckout: React.FC<any> = () => {
                     </div>
 
                     <p className="mb-5">Complete your order below and thank you for shopping at Spoint, <br/>where blue is beautiful.</p>
-{/* btn-primary btn-block */}
+
                     <button type="button" onClick={sendEmail} className="btn btn-danger btn-lg">Place Your Order</button>
+
 
                     <h5 className="fw-bold mb-5 pt-5"  >
                       <a href="/home"><i 
