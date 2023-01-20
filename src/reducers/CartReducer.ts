@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, DEL_PRODUCT } from "../actions/ActionTypes";
+import { ADD_PRODUCT, CLEAR_ALL_PRODUCTS, DEL_PRODUCT } from "../actions/ActionTypes";
 import { CartList } from "../store/types";
 
 let initialState: CartList = {
@@ -18,6 +18,11 @@ export const CartReducer = (state: CartList = initialState, action: Action)=> {
                 ...initialState
             }
         case DEL_PRODUCT:
+            initialState = action.payload
+            return {
+                ...initialState
+            }
+        case CLEAR_ALL_PRODUCTS:
             initialState = action.payload
             return {
                 ...initialState

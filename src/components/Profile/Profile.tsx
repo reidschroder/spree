@@ -39,7 +39,7 @@ const Profile : React.FC<any> = (props: any) => {
             <div className="d-flex justify-content-center mb-2 mt-4">
              
               <button type="button" onClick={routeChange} className="btn btn-primary"> 
-                Add Address
+                Update Address
               </button>
               
             </div>

@@ -4,6 +4,7 @@ import CartProduct from '../CartProduct/CartProduct';
 import './CartCheckout.css'
 import { useNavigate } from 'react-router'
 import emailjs from '@emailjs/browser'
+import { clearCart } from '../../actions/CartCheckoutActions';
 
 const CartCheckout: React.FC<any> = () => {
 
@@ -66,24 +67,30 @@ const CartCheckout: React.FC<any> = () => {
   }
 
   let navigate = useNavigate();
+  
+  const dropCart = async () => {
+    await dispatch(clearCart() as any);
+  }
 
   const sendEmail = (e:any) => 
-    {
-        e.preventDefault();
+  {
+    if (appState.cartList.cart.length > 0) {
+      e.preventDefault();
 
-        emailjs.send("service_iugqxzp","template_r361rbg",{
-          customerUsername: `${appState.customer.customerUsername}`,
-          subject: "Spoint Attire",
-          customerEmail: `${appState.customer.customerEmail}`,
-          },"dc-GXX1QtsLE6Mg9w")
-        
+      emailjs.send("service_iugqxzp","template_r361rbg",{
+        customerUsername: `${appState.customer.customerUsername}`,
+        subject: "Spoint Attire",
+        customerEmail: `${appState.customer.customerEmail}`,
+        },"dc-GXX1QtsLE6Mg9w")
       .then((result) => {
           console.log(result.text);
       }, (error) => {
           console.log(error.text);
       });
-     // e.target.reset()
+      dropCart();
+      // e.target.reset()
       navigate("/orderconfirmation");
+    }
   }
 
 
