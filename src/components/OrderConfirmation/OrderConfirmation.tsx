@@ -30,7 +30,7 @@ const OrderConfirmation : React.FC<any> = (props: any) => {
 
   return (
     <div className="container mt-4 mb-4">
-      <div className="row d-flex cart align-items-center justify-content-center">
+      <div className="row d-flex cart-style align-items-center justify-content-center">
         <div className="col-md-6">
           <div className="card rounded shadow-sm p-3">
             <div className="d-flex justify-content-center border-bottom">
@@ -67,7 +67,7 @@ const OrderConfirmation : React.FC<any> = (props: any) => {
                       {appState.customer.customerAddress}
                     </small>{" "}
                   </div>{" "}
-                  <button className="btn btn-danger btn-block order-button">
+                  <button className="btn btn-primary btn-block order-button">
                     {" "}
                     <a href="/home"> Continue Shopping </a>
                   </button>

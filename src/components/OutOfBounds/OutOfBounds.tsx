@@ -12,7 +12,7 @@ const OutOfBounds : React.FC<any> = (props: any) => {
 
   return (
     <div className="container mt-4 mb-4">
-      <div className="row d-flex cart align-items-center justify-content-center">
+      <div className="row d-flex cart-confirmation align-items-center justify-content-center">
         <div className="col-md-6">
           <div className="card rounded shadow-sm p-3">
             <div className="d-flex justify-content-center border-bottom">
@@ -40,7 +40,7 @@ const OutOfBounds : React.FC<any> = (props: any) => {
                   
                     <span className="font-weight-bold">Let's take you somewhere safe</span>{" "}
                   </div>{" "}
-                  <button className="btn btn-danger btn-block home-button">
+                  <button className="btn btn-primary btn-block home-button">
                     {" "}
                     <a href="/home"> Home </a>
                   </button>
